@@ -18,22 +18,26 @@
 <solids>
 <tessellated name="pyramid1">
  <triangular vertex1="v1" vertex2="v2" vertex3="v6" type="ABSOLUTE"/>
- <triangular vertex1="v2" vertex2="v3" vertex3="v6" type="ABSOLUTE"/>
- <triangular vertex1="v3" vertex2="v4" vertex3="v5" type="ABSOLUTE"/>
- <triangular vertex1="v4" vertex2="v1" vertex3="v5" type="ABSOLUTE"/>
+ <triangular vertex1="v2" vertex2="v4" vertex3="v6" type="ABSOLUTE"/>
+ <triangular vertex1="v4" vertex2="v3" vertex3="v5" type="ABSOLUTE"/>
+ <triangular vertex1="v3" vertex2="v1" vertex3="v5" type="ABSOLUTE"/>
  <triangular vertex1="v1" vertex2="v6" vertex3="v5" type="ABSOLUTE"/>
- <triangular vertex1="v6" vertex2="v3" vertex3="v5" type="ABSOLUTE"/>
+ <triangular vertex1="v6" vertex2="v4" vertex3="v5" type="ABSOLUTE"/>
  <quadrangular vertex1="v3" vertex2="v4" vertex3="v2" vertex4="v1" type="ABSOLUTE"/>
 </tessellated> 
 <tessellated name="pyramid2">
  <triangular vertex1="v1" vertex2="v2" vertex3="v8" type="ABSOLUTE"/>
- <triangular vertex1="v2" vertex2="v3" vertex3="v8" type="ABSOLUTE"/>
- <triangular vertex1="v3" vertex2="v4" vertex3="v7" type="ABSOLUTE"/>
- <triangular vertex1="v4" vertex2="v1" vertex3="v7" type="ABSOLUTE"/>
+ <triangular vertex1="v2" vertex2="v4" vertex3="v8" type="ABSOLUTE"/>
+ <triangular vertex1="v4" vertex2="v3" vertex3="v7" type="ABSOLUTE"/>
+ <triangular vertex1="v3" vertex2="v1" vertex3="v7" type="ABSOLUTE"/>
  <triangular vertex1="v1" vertex2="v8" vertex3="v7" type="ABSOLUTE"/>
- <triangular vertex1="v8" vertex2="v3" vertex3="v7" type="ABSOLUTE"/>
- <quadrangular vertex1="v4" vertex2="v3" vertex3="v2" vertex4="v1" type="ABSOLUTE"/>
+ <triangular vertex1="v8" vertex2="v4" vertex3="v7" type="ABSOLUTE"/>
+ <quadrangular vertex1="v3" vertex2="v4" vertex3="v2" vertex4="v1" type="ABSOLUTE"/>
 </tessellated> 
+<intersect name="intersect">
+ <first ref="pyramid1"/>
+ <second ref="pyramid2"/>
+</intersect>
 <union name="union">
  <first ref="pyramid1"/>
  <second ref="pyramid2"/>
@@ -41,14 +45,14 @@
 </solids>
 
 <structure>
- <volume name="logicTarget">
+ <volume name="world">
    <materialref ref="G4_Galactic"/>
-   <solidref ref="pyramid1"/>
+   <solidref ref="union"/>
  </volume>
 </structure>
 
 <setup name="Target" version="1.0">
-	<world ref="logicTarget"/>
+ <world ref="world"/>
 </setup>
 
 </gdml>
